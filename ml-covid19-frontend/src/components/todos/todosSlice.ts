@@ -1,5 +1,8 @@
+import {createSelector} from 'reselect';
+
 import {client} from '../../api/client';
-import {todoItemType} from '../../store';
+import {stateType, todoItemType} from '../../store';
+import {StatusFilters} from "../filters/filtersSlice";
 
 type actionType = {
     type: string,
@@ -87,3 +90,33 @@ export function saveNewTodo(text: string) {
         dispatch(todoAdded(response.todo));
     }
 }
+
+//Memoizing Selectors
+export const selectTodoIds = createSelector(
+    (state: stateType) => state.todos,
+    (todos: todoItemType[]) => todos.map(todo => todo.id)
+);
+
+export const selectFilteredTodos  = createSelector(
+    (state: stateType) => state.todos,
+    (state: stateType) => state.filters,
+    (todos: todoItemType[], filters: {colors: string[], status: string}) => {
+        const {colors, status} = filters;
+        const showAllCompletions: boolean = status === StatusFilters.All;
+        if (showAllCompletions && colors.length === 0) {
+            return todos;
+        }
+
+        const completedStatus = status === StatusFilters.Completed;
+        return todos.filter((todo: todoItemType) => {
+            const statusMatches = showAllCompletions || todo.completed === completedStatus;
+            const colorMatches = colors.length === 0 || (todo.color && colors.includes(todo.color));
+            return statusMatches && colorMatches;
+        });
+    }
+);
+
+export const selectFilteredTodoIds = createSelector(
+    selectFilteredTodos,
+    (filteredTodos: todoItemType[]) => filteredTodos.map((todo: todoItemType) => todo.id)
+);
