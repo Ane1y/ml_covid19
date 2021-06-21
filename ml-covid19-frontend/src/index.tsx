@@ -1,21 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-
-import './style.scss'
 import App from './App';
-import './api/server';
-import store from './store';
-import {fetchTodos} from './components/todos/todosSlice';
+import {Provider} from 'react-redux';
+import {store} from "./store/store";
 
-// @ts-ignore
-store.dispatch(fetchTodos());
 
 ReactDOM.render(
-  <React.StrictMode>
-      <Provider store={store}>
-          <App/>
-      </Provider>
-  </React.StrictMode>,
+    <Provider store={store}>
+        <App/>
+    </Provider>,
   document.getElementById('root')
 );

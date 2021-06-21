@@ -1,28 +1,28 @@
 import React from 'react';
+import {BrowserRouter, Switch, Route} from "react-router-dom"
+import "./app.scss"
+import Navbar from "./components/navbar/Navbar";
+import Home from "./components/pages/Home";
+import Data from "./components/pages/Data";
+import DetailedData from "./components/pages/DetailedData";
+import Information from "./components/pages/Information";
 
-import Header from './components/header/Header';
-import TodoList from './components/todos/TodoList';
-import Footer from './components/footer/Footer';
 
 function App() {
     return (
-        <div className='App'>
-            <nav>
-                <section>
-                    <h1>Redux TodoApp</h1>
-                </section>
-            </nav>
-            <main>
-                <section className='medium-container'>
-                    <h2>Todos</h2>
-                    <div className='todoapp'>
-                        <Header/>
-                        <TodoList/>
-                        <Footer/>
-                    </div>
-                </section>
-            </main>
-        </div>
+        <BrowserRouter>
+            <div className="app">
+                <Navbar />
+                <div className="container">
+                    <Switch>
+                        <Route exact path="/"  component={Home}/>
+                        <Route path="/data"  component={Data}/>
+                        <Route path="/detailed-data"  component={DetailedData}/>
+                        <Route path="/information"  component={Information}/>
+                    </Switch>
+                </div>
+            </div>
+        </BrowserRouter>
     );
 }
 
