@@ -6,6 +6,7 @@ import Home from "./components/pages/Home";
 import Data from "./components/pages/Data";
 import DetailedData from "./components/pages/DetailedData";
 import Information from "./components/pages/Information";
+import Footer from "./components/footer/Footer";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                         <Route path="/information"  component={Information}/>
                     </Switch>
                 </div>
+                <Footer />
             </div>
         </BrowserRouter>
     );
