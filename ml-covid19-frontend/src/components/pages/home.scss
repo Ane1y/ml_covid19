@@ -1,4 +1,94 @@
 .home {
   height: 100%;
-  background: grey;
+  width: 100%;
+}
+
+.background-home {
+  background: url("../../images/BackgroundPageHome.png") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100%;
+  min-width: 700px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 5%;
+}
+
+.content-wrapper-home {
+  padding-top: 80px;
+  margin-left: 5%;
+  margin-right: 5%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.main-heading-home {
+  height: 250px;
+  width: 700px;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 65px;
+  color: #161717;
+  margin-top: 9.9%; //170 px
+  margin-left: 6%; //150px
+}
+
+.sub-heading-home {
+  height: 50px;
+  width: 700px;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-size: 32px;
+  color: #161717;
+  margin-left: 6%;
+}
+
+.data-button-home {
+  display: inline-block;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.25);
+  height: 75px;
+  width: 380px;
+  border: none;
+  border-radius: 20px;
+  background-color: #FEC76A;
+  margin-left: 6%;
+  margin-top: 15%;
+  cursor: pointer;
+}
+
+.data-button-text-home {
+  height: 75px;
+  width: 304px;
+  color: #fff;
+  font-size: 30px;
+  font-family: "Roboto", sans-serif;
+  line-height: 35px;
+  font-weight: 700;
+  position: absolute;
+  text-decoration: none;
+  margin-left: 76px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+}
+
+.data-button-icon-home {
+  width: 60.8px;
+  height: 60px;
+  margin-left: 10.13px;
+  margin-top: 10px;
+}
+
+.data-button-home:hover {
+  background-color: #BFA06B;
 }
