@@ -1,4 +1,270 @@
 .data {
   height: 100%;
-  background: blue;
+  width: 100%;
+}
+
+.background-data {
+  background: url("../../images/BackgroundPageOD.png") repeat-y;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
+  min-height: 100%;
+  min-width: 700px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 5%;
+}
+
+.content-wrapper-data {
+  //background-color: aqua;
+  padding-top: 80px;
+  margin-left: 10%;
+  margin-right: 15%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.content-row {
+  //background-color: #E69685;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-bottom: 0;
+}
+
+.content-row-reversed {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-bottom: 0;
+  margin-top: 3%;
+}
+
+.main-heading-data {
+  height: 175px;
+  width: 850px;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 75px;
+  color: #161717;
+  margin-top: 4%;
+  margin-left: 2%;
+  text-align: center;
+  align-items: center;
+  vertical-align: top;
+  display: flex;
+}
+
+.button-data-text{
+  margin-top: 100px;
+  margin-left: 20px;
+  display: flex;
+  height: 60px;
+  width: 360px;
+  position: absolute;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-size: 28px;
+  color: #161717;
+  vertical-align: top;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+/*active cases*/
+.button-data-active {
+  height: 175px;
+  width: 400px;
+  margin-top: 4%;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.25);
+  background-color: #fff;
+}
+
+.button-data-active-number{
+  display: flex;
+  margin-top: 10px;
+  height: 90px;
+  width: 400px;
+  position: absolute;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-size: 60px;
+  color: #E69685;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+/*all cases*/
+.button-data-all {
+  height: 175px;
+  width: 400px;
+  margin-top: 4%;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.25);
+  background-color: #fff;
+}
+
+.button-data-all-number {
+  display: flex;
+  margin-top: 10px;
+  height: 90px;
+  width: 400px;
+  position: absolute;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-size: 60px;
+  color: #FEC76A;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+/*cases of recovery*/
+.button-data-healthy {
+  height: 175px;
+  width: 400px;
+  margin-top: 4%;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.25);
+  background-color: #fff;
+}
+
+.button-data-healthy-number {
+  display: flex;
+  margin-top: 10px;
+  height: 90px;
+  width: 400px;
+  position: absolute;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-size: 60px;
+  color: #FEC76A;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+/*cases of death*/
+.button-data-deadly {
+  height: 175px;
+  width: 400px;
+  margin-top: 4%;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.25);
+  background-color: #fff;
+}
+
+.button-data-deadly-number {
+  display: flex;
+  margin-top: 10px;
+  height: 90px;
+  width: 400px;
+  position: absolute;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-size: 60px;
+  color: #FEC76A;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+/*cases per day*/
+.button-data-per_day {
+  height: 175px;
+  width: 400px;
+  margin-top: 4%;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.25);
+  background-color: #fff;
+}
+
+.button-data-per_day-number {
+  display: flex;
+  margin-top: 10px;
+  height: 90px;
+  width: 400px;
+  position: absolute;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-size: 60px;
+  color: #E69685;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+/*cases of recovery per day*/
+.button-data-healthy-per_day {
+  height: 175px;
+  width: 400px;
+  margin-top: 4%;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.25);
+  background-color: #fff;
+}
+
+
+.button-data-healthy-per_day-number {
+  display: flex;
+  margin-top: 10px;
+  height: 90px;
+  width: 400px;
+  position: absolute;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-size: 60px;
+  color: #E69685;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+/*cases of death per day*/
+.button-data-deadly-per_day {
+  height: 175px;
+  width: 400px;
+  margin-top: 4%;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.25);
+  background-color: #fff;
+}
+
+.button-data-deadly-per_day-number {
+  display: flex;
+  margin-top: 10px;
+  height: 90px;
+  width: 400px;
+  position: absolute;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-size: 60px;
+  color: #E69685;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
