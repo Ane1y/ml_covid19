@@ -1,4 +1,42 @@
 .detailed-data {
   height: 100%;
-  background: green;
+  width: 100%;
+}
+
+.background {
+  background: url("../../images/BackgroundPageCovid19.png") repeat-y;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
+  min-height: 100%;
+  min-width: 750px;
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.content-wrapper {
+  padding-top: 80px;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+  flex-wrap: wrap;
+}
+
+.main-heading {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  height: 80px;
+  width: 100%;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 50px;
+  color: #161717;
 }
