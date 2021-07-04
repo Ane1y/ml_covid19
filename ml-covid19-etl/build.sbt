@@ -6,7 +6,8 @@ val sparkVersion = "3.1.2"
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion % Provided,
   "org.apache.spark" %% "spark-sql" % sparkVersion % Provided,
-  "com.github.scopt" %% "scopt" % "4.0.1"
+  "com.github.scopt" %% "scopt" % "4.0.1",
+  "org.postgresql" % "postgresql" % "42.2.22"
 )
 
 assembly / assemblyJarName := "sparkJobs.jar"
