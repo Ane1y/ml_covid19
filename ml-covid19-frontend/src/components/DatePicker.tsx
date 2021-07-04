@@ -46,7 +46,7 @@ const DatePicker = (props: DatePickerPropsType) => {
     }
 
     return (
-        <div className="date-picker">
+        <div>
             <DateRangePicker
                 startDate={startDate}
                 startDateId="start_date_id"

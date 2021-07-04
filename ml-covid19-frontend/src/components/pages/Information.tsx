@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import {useActions} from "../../hooks/useActions";
 import {linkInformation} from "../../store/reducers/navbarReducer";
 import "./information.scss"
+import Footer from "../footer/Footer";
 
 const Information: React.FC = () => {
     const {setPage} = useActions()
@@ -104,6 +105,7 @@ const Information: React.FC = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }

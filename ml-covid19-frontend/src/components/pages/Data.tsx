@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import {useActions} from "../../hooks/useActions";
 import {linkData} from "../../store/reducers/navbarReducer";
 import "./data.scss"
+import Footer from "../footer/Footer";
 
 const Data: React.FC = () => {
     const {setPage} = useActions()
@@ -10,7 +11,7 @@ const Data: React.FC = () => {
         setPage(linkData.id)
     }, [])
 
-    return(
+    return (
         <div className="background-data">
             <div className="data">
                 <div className="content-wrapper-data">
@@ -51,6 +52,7 @@ const Data: React.FC = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }

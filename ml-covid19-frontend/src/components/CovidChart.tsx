@@ -25,7 +25,7 @@ const CovidChart = (props: CovidChartType) => {
     return (
         <div className={props.isReverse ? "covid-chart covid-chart-reverse" : "covid-chart"}>
             <div className="filter-card">
-                <div className="card-title">
+                <div className="covid-chart-card-title">
                     {props.title}
                 </div>
                 <div className="data-number">

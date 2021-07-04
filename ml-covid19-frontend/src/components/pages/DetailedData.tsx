@@ -5,6 +5,7 @@ import "./detailedData.scss"
 import CovidChart from "../CovidChart"
 import {useTypedSelector} from "../../hooks/useTypedSelector"
 import moment from "moment";
+import Footer from "../footer/Footer"
 
 const DetailedData: React.FC = () => {
     const {
@@ -36,8 +37,8 @@ const DetailedData: React.FC = () => {
     }, [])
 
     return (
-        <div className="detailed-data">
-            <div className="background">
+        <div className="background">
+            <div className="detailed-data">
                 <div className="content-wrapper">
                     <div className="main-heading">Ситуация с Covid-19</div>
                     <CovidChart title="Выявлено случаев"
@@ -60,6 +61,7 @@ const DetailedData: React.FC = () => {
                     />
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }
