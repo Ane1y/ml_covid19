@@ -6,6 +6,7 @@ plugins {
     id("org.flywaydb.flyway") version "7.10.0"
     kotlin("jvm") version "1.4.31"
     kotlin("plugin.spring") version "1.4.31"
+    kotlin("plugin.jpa") version "1.4.31"
 }
 
 group = "com.covidproject"
@@ -26,15 +27,16 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation ("org.flywaydb:flyway-core")
-    implementation ("org.postgresql:postgresql:9.2-1003-jdbc4")
+    runtimeOnly("org.postgresql:postgresql")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 flyway {
-    url = "{jdbc:postgresql://HOST:PORT/DB}"
+    url = "jdbc:postgresql://HOST:PORT/DB"
     user = "{USER}"
     password = "{PASSWORD}"
-    locations = arrayOf("filesystem:src/main/resources/db/migration")
+    locations = arrayOf("filesystem:src\\main\\resources\\db\\migration\\")
+    failOnMissingLocations = true
 }
 
 tasks.withType<KotlinCompile> {
