@@ -51,4 +51,10 @@ interface CovidRepository : CrudRepository<CovidData, Int>{
             "ORDER BY c.date")
     fun getDead(@Param("start") start: Date,
                      @Param("end") end: Date): List<CountWithDate>
+
+    @Query("SELECT SUM(c.previousDayTestsPerformedMoreThan) FROM CovidData c")
+    fun getTestCount(): Long
+
+    @Query("SELECT MAX(c.date) FROM CovidData c")
+    fun getDate(): Date
 }

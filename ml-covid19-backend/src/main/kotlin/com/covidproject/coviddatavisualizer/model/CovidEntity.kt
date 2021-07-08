@@ -13,7 +13,7 @@ class CovidData(
         val previousDayRecoveredPeople: Int,
         val dead: Int,
         val previousDayDiseasedPeople: Int,
-        val testsPerformed: Int,
+        val previousDayTestsPerformedMoreThan: Int,
         val updatedAt: Date
 ) {
     @Id

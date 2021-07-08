@@ -35,4 +35,10 @@ class CovidController(val service: CovidService) {
     fun dead(
             @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") start: Date,
             @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") end: Date): CountWithDateResponse = service.getDead(start, end)
+
+    @GetMapping("/test")
+    fun testCount(): SingleResponse<Long> = SingleResponse(service.getTestCount())
+
+    @GetMapping("/date")
+    fun date(): SingleResponse<Date> = SingleResponse(service.getDate())
 }
