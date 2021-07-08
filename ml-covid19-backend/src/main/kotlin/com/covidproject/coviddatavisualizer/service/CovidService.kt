@@ -14,6 +14,10 @@ class CovidService(val db: CovidRepository) {
 
     fun getDead(): Long = db.getDead()
 
+    fun getTestCount(): Long = db.getTestCount()
+
+    fun getDate(): Date = db.getDate()
+
     fun getOverallCases(startDate: Date, endDate: Date): CountWithDateResponse {
         return CountWithDateResponse(startDate,
                 endDate,
