@@ -1,4 +1,5 @@
 import {CovidDataAction, CovidDataState, CovidDataTypes} from "../../types/covidData";
+import moment from "moment";
 
 const initialState : CovidDataState = {
     overallCases: 0,
@@ -7,6 +8,7 @@ const initialState : CovidDataState = {
         data: [],
         startDate: null,
         endDate: null,
+        allAmount: 0,
         loading: false
     },
     recoveredPeople: 0,
@@ -15,6 +17,7 @@ const initialState : CovidDataState = {
         data: [],
         startDate: null,
         endDate: null,
+        allAmount: 0,
         loading: false
     },
     diseasedPeople: 0,
@@ -23,9 +26,11 @@ const initialState : CovidDataState = {
         data: [],
         startDate: null,
         endDate: null,
+        allAmount: 0,
         loading: false
     },
-    testsPerformed: 0
+    testsPerformed: 0,
+    latestUpdateDate: moment()
 }
 
 const covidDataReducer = (state = initialState, action: CovidDataAction): CovidDataState => {
@@ -50,6 +55,8 @@ const covidDataReducer = (state = initialState, action: CovidDataAction): CovidD
             return {...state, diseasedPeopleForDate: action.payload}
         case CovidDataTypes.FETCH_TESTS_PERFORMED:
             return {...state, testsPerformed: action.payload}
+        case CovidDataTypes.FETCH_LATEST_UPDATE_DATE:
+            return {...state, latestUpdateDate: action.payload}
         default:
             return state;
     }

@@ -4,36 +4,29 @@ import {linkDetailedData} from "../../store/reducers/navbarReducer"
 import "./detailedData.scss"
 import CovidChart from "../CovidChart"
 import {useTypedSelector} from "../../hooks/useTypedSelector"
-import moment from "moment";
 import Footer from "../footer/Footer"
 
 const DetailedData: React.FC = () => {
     const {
-        overallCases,
-        recoveredPeople,
-        diseasedPeople,
         overallCasesForDate,
         recoveredPeopleForDate,
-        diseasedPeopleForDate
+        diseasedPeopleForDate,
+        latestUpdateDate
     } = useTypedSelector(state => state.covidData)
     const {
         setPage,
-        fetchOverallCases,
-        fetchRecoveredPeople,
-        fetchDiseasedPeople,
         fetchOverallCasesForDate,
         fetchRecoveredPeopleForDate,
-        fetchDiseasedPeopleForDate
+        fetchDiseasedPeopleForDate,
+        fetchLatestUpdateDate
     } = useActions()
 
     useEffect(() => {
         setPage(linkDetailedData.id)
-        fetchOverallCases()
-        fetchRecoveredPeople()
-        fetchDiseasedPeople()
-        fetchOverallCasesForDate(moment().subtract(7, "days"), moment())
-        fetchRecoveredPeopleForDate(moment().subtract(7, "days"), moment())
-        fetchDiseasedPeopleForDate(moment().subtract(7, "days"), moment())
+        fetchLatestUpdateDate()
+        fetchOverallCasesForDate(latestUpdateDate.clone().subtract(1, "month"), latestUpdateDate)
+        fetchRecoveredPeopleForDate(latestUpdateDate.clone().subtract(1, "month"), latestUpdateDate)
+        fetchDiseasedPeopleForDate(latestUpdateDate.clone().subtract(1, "month"), latestUpdateDate)
     }, [])
 
     return (
@@ -42,19 +35,19 @@ const DetailedData: React.FC = () => {
                 <div className="content-wrapper">
                     <div className="main-heading">Ситуация с Covid-19</div>
                     <CovidChart title="Выявлено случаев"
-                                amount={overallCases}
+                                latestDayUpdate={latestUpdateDate}
                                 isReverse={false}
                                 fetchDataForDate={fetchOverallCasesForDate}
                                 dataForChart={overallCasesForDate}
                     />
                     <CovidChart title="Человек выздоровело"
-                                amount={recoveredPeople}
+                                latestDayUpdate={latestUpdateDate}
                                 isReverse={true}
                                 fetchDataForDate={fetchRecoveredPeopleForDate}
                                 dataForChart={recoveredPeopleForDate}
                     />
                     <CovidChart title="Человек умерло"
-                                amount={diseasedPeople}
+                                latestDayUpdate={latestUpdateDate}
                                 isReverse={false}
                                 fetchDataForDate={fetchDiseasedPeopleForDate}
                                 dataForChart={diseasedPeopleForDate}

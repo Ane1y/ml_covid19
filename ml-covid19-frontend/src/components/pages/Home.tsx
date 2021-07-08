@@ -6,11 +6,13 @@ import {useTypedSelector} from "../../hooks/useTypedSelector";
 import { NavLink } from "react-router-dom";
 
 const Home: React.FC = () => {
-    const {setPage} = useActions()
+    const {setPage, fetchLatestUpdateDate} = useActions()
     const {links} = useTypedSelector(state => state.navbar)
+    const {latestUpdateDate} = useTypedSelector(state => state.covidData)
 
     useEffect(() => {
         setPage(linkHome.id)
+        fetchLatestUpdateDate()
     }, [])
 
     return(
@@ -18,7 +20,7 @@ const Home: React.FC = () => {
             <div className="home">
                 <div className="content-wrapper-home">
                     <div className="main-heading-home">Подробная статистика данных Covid-19</div>
-                    <div className="sub-heading-home">По состоянию на 29.06.2021</div>
+                    <div className="sub-heading-home">По состоянию на {latestUpdateDate?.format("DD.MM.YYYY")}</div>
 
                     <NavLink className="data-button-home" to={links[1].page}>
                         <div className="data-button-text-home">посмотреть данные</div>
