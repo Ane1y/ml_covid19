@@ -4,6 +4,7 @@ export interface DataForChart {
     data: any[];
     startDate: Moment | null;
     endDate: Moment | null;
+    allAmount: number;
     loading: boolean;
 }
 
@@ -17,7 +18,8 @@ export enum CovidDataTypes {
     FETCH_DISEASED_PEOPLE = "FETCH_DISEASED_PEOPLE",
     FETCH_DISEASED_PEOPLE_FOR_DAY = "FETCH_DISEASED_PEOPLE_FOR_DAY",
     FETCH_DISEASED_PEOPLE_FOR_DATE = "FETCH_DISEASED_PEOPLE_FOR_DATE",
-    FETCH_TESTS_PERFORMED = "FETCH_TESTS_PERFORMED"
+    FETCH_TESTS_PERFORMED = "FETCH_TESTS_PERFORMED",
+    FETCH_LATEST_UPDATE_DATE = "FETCH_LATEST_UPDATE_DATE"
 }
 
 interface fetchOverallCasesAction {
@@ -70,6 +72,11 @@ interface fetchTestsPerformedAction {
     payload: number;
 }
 
+interface fetchLatestUpdateDate {
+    type: CovidDataTypes.FETCH_LATEST_UPDATE_DATE;
+    payload: Moment;
+}
+
 export type CovidDataAction =
     fetchOverallCasesAction |
     fetchOverallCasesForDayAction |
@@ -80,7 +87,8 @@ export type CovidDataAction =
     fetchDiseasedPeopleAction |
     fetchDiseasedPeopleForDayAction |
     fetchDiseasedPeopleForDateAction |
-    fetchTestsPerformedAction;
+    fetchTestsPerformedAction |
+    fetchLatestUpdateDate;
 
 export interface CovidDataState {
     overallCases: number;
@@ -93,4 +101,5 @@ export interface CovidDataState {
     diseasedPeopleForDay: number;
     diseasedPeopleForDate: DataForChart;
     testsPerformed: number;
+    latestUpdateDate: Moment;
 }

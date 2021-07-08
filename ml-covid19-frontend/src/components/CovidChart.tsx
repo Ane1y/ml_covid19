@@ -4,13 +4,14 @@ import DatePicker from "./DatePicker"
 import {fetchOverallCasesForDate} from "../store/actions/covidData";
 import {DataForChart} from "../types/covidData"
 import {Chart} from "react-google-charts";
+import {Moment} from "moment";
 
 interface CovidChartType {
     title: string;
-    amount: number;
     isReverse: boolean;
     dataForChart: DataForChart;
     fetchDataForDate: typeof fetchOverallCasesForDate;
+    latestDayUpdate: Moment;
 }
 
 const CovidChart = (props: CovidChartType) => {
@@ -19,7 +20,7 @@ const CovidChart = (props: CovidChartType) => {
     ];
 
     props.dataForChart.data.forEach((item) => {
-        chartData.push([item.date, item.amount])
+        chartData.push([item.date, item.count])
     })
 
     return (
@@ -29,7 +30,20 @@ const CovidChart = (props: CovidChartType) => {
                     {props.title}
                 </div>
                 <div className="data-number">
-                    {props.amount.toLocaleString('ru-RU')}
+                    {props.dataForChart.loading ? (
+                        <div className="chart-content-center">
+                            <div className="lds-ellipsis">
+                                <div/>
+                                <div/>
+                                <div/>
+                                <div/>
+                            </div>
+                        </div>
+                    ) : (
+                        <div>
+                            {props.dataForChart.allAmount.toLocaleString('ru-RU')}
+                        </div>
+                    )}
                 </div>
                 <div className="card-text">
                     временной промежуток
@@ -38,6 +52,7 @@ const CovidChart = (props: CovidChartType) => {
                     <DatePicker fetchDataForDate={props.fetchDataForDate}
                                 startDate={props.dataForChart.startDate}
                                 endDate={props.dataForChart.endDate}
+                                latestDayUpdate={props.latestDayUpdate}
                     />
                 </div>
             </div>
@@ -46,7 +61,7 @@ const CovidChart = (props: CovidChartType) => {
                     <div className="chart-title">
                         {props.dataForChart.data.length ? (
                             props.dataForChart.startDate?.format("DD.MM.YYYY") +
-                                    " - " +
+                            " - " +
                             props.dataForChart.endDate?.format("DD.MM.YYYY")
                         ) : (
                             <div style={{color: "transparent"}}>
@@ -57,14 +72,14 @@ const CovidChart = (props: CovidChartType) => {
                 </div>
                 <div className="chart">
                     {props.dataForChart.loading ? (
-                            <div className="chart-content-center">
-                                <div className="lds-ellipsis">
-                                    <div/>
-                                    <div/>
-                                    <div/>
-                                    <div/>
-                                </div>
+                        <div className="chart-content-center">
+                            <div className="lds-ellipsis">
+                                <div/>
+                                <div/>
+                                <div/>
+                                <div/>
                             </div>
+                        </div>
                     ) : (
                         <div className="chart-content">
                             {props.dataForChart.data.length ? (

@@ -11,6 +11,7 @@ interface DatePickerPropsType {
     startDate: Moment | null,
     endDate: Moment | null,
     fetchDataForDate: typeof fetchOverallCasesForDate;
+    latestDayUpdate: Moment;
 }
 
 const DatePicker = (props: DatePickerPropsType) => {
@@ -60,8 +61,8 @@ const DatePicker = (props: DatePickerPropsType) => {
                 displayFormat={() => "DD.MM.YYYY"}
                 onClose={onClose}
                 isOutsideRange={day =>
-                    !day.isAfter(moment("01-01-2019", "DD-MM-YYYY")) ||
-                    !isInclusivelyBeforeDay(day, moment())
+                    !day.isAfter(moment("2020-03-24", "YYYY-MM-DD")) ||
+                    !isInclusivelyBeforeDay(day, props.latestDayUpdate)
                 }
                 block
                 readOnly
